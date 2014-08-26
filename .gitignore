@@ -1,0 +1,11 @@
+node_modules
+.npm-debug.log
+tmp
+.tmp
+dist
+.DS_Store
+.rebooted
+_*
+.grunt
+bower_components
+parse/public/jst.js

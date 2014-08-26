@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <title>Filming locations in San Francisco - SFFilmings</title>
+    <meta name="viewport" content="width=1024">
+    <link rel="stylesheet" href="/css/jquery-ui.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+</head>
+
+<body>
+
+    <!-- see `http://codepen.io/FWeinb/pen/Dfoaw` for original example -->
+    <div class="content">
+        <div class="content-display">
+            <div class="blurred header">
+                <div class="header-container">
+                    <div id="panel">
+                        <table>
+                            <thead>
+                                <tr id="header-panel">
+                                    <td>
+                                        <section>
+                                            <h1>SFFilmings</h1>
+                                            <h4>Press Enter to Search for Famous Movie Filming Locations in San Francisco!</h4>
+
+                                            <div class="ui-widget">
+                                                <input id="new-search" type="text" placeholder="Search">
+                                            </div>
+                                        </section>
+                                    </td>
+                                    <td id="result-header">
+                                        <!-- Contents will be replaced on search by movie details -->
+                                        <section>
+                                            <h2>Try typing '50'</h2>
+                                        </section>
+                                    </td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr id="search-panel" class="content-cell">
+                                    <td id="search-panel" class="content-cell">
+                                        <ul id="recents-list">
+                                            <!-- Contents are filled on load and search -->
+                                        </ul>
+                                    </td>
+                                    <td id="content-panel" class="content-cell">
+                                        <section>
+                                            <ul id="search-results">
+                                                <!-- Contents will be replaced on search by addresses -->
+                                            </ul>
+                                        </section>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td>
+                                        <section>
+                                            <div id="credits">
+                                                Created by
+                                                <br />
+                                                <a href="github.com/gauravk92">Gaurav Khanna</a>.
+                                            </div>
+                                        </section>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+                <div class="blurred-background"></div>
+            </div>
+            <div class="map-display">
+                <!-- The map-canvas is displayed through this layer -->
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- The google map canvas element will be here -->
+    <div id="map-canvas" class="map-canvas"></div>
+
+    <script src="/js/vendor/json2.js"></script>
+    <script src="/js/vendor/jquery.js"></script>
+    <script src="/js/vendor/underscore.js"></script>
+    <script src="/js/vendor/backbone.js"></script>
+    <script src="/js/vendor/backbone.localStorage.js"></script>
+    <script src="/js/vendor/jquery-ui.js"></script>
+    <script src="/jst.js"></script>
+
+    <script src="/js/main.js"></script>
+
+    <!-- For quick debugging of the movie data -->
+    <script id="data" type="application/json" src="https://data.sfgov.org/api/views/yitu-d5am/rows.json"></script>
+
+    <script>
+    var MapObject;
+
+    function initialize() {
+        var mapOptions = {
+            zoom: 13,
+            draggable: false,
+            scrollwheel: false,
+            mapTypeControl: true,
+            mapTypeControlOptions: {
+                position: google.maps.ControlPosition.BOTTOM_CENTER
+            },
+            panControl: true,
+            panControlOptions: {
+                position: google.maps.ControlPosition.BOTTOM_LEFT
+            },
+            zoomControl: true,
+            zoomControlOptions: {
+                style: google.maps.ZoomControlStyle.LARGE,
+                position: google.maps.ControlPosition.LEFT_BOTTOM
+            },
+            scaleControl: true, // fixed to BOTTOM_RIGHT
+            streetViewControl: false,
+            center: new google.maps.LatLng(37.786009, -122.438324),
+            disableDefaultUI: false
+        }
+        MapObject = new google.maps.Map(document.getElementById('map-canvas'),
+            mapOptions);
+
+    }
+
+    function loadScript() {
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&' +
+            'callback=initialize';
+        document.body.appendChild(script);
+    }
+
+
+    window.onload = loadScript;
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,14 @@
+{
+    "applications": {
+        "SFFilmings": {
+            "applicationId": "EAqMRdhj7RhCkDrWI1A5cYQOXRstiC3JVbr8SDVZ", 
+            "masterKey": "f7MVfjMcG4d4R4o1TvDjUmwi4VtCdjwYRcJ0n3yg"
+        }, 
+        "_default": {
+            "link": "SFFilmings"
+        }
+    }, 
+    "global": {
+        "parseVersion": "1.2.19"
+    }
+}

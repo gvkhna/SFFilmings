@@ -1,0 +1,25 @@
+{
+  "name": "SFFilmings",
+  "version": "1.0.0",
+  "authors": [
+    "Gaurav Khanna <gauravk92@gmail.com>"
+  ],
+  "description": "Search filming locations in San Francisco",
+  "license": "MIT",
+  "homepage": "sffilmings.parseapp.com",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jasmine-jquery": "~2.0.5"
+  },
+  "devDependencies": {
+    "jquery": "~2.1.1",
+    "jasmine-jquery": "~2.0.5"
+  }
+}

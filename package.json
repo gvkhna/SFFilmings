@@ -1,0 +1,28 @@
+{
+  "name": "SFFilmings",
+  "version": "1.0.0",
+  "devDependencies": {
+    "connect-livereload": "latest",
+    "ejs": "latest",
+    "express": "latest",
+    "grunt": "latest",
+    "grunt-cli": "latest",
+    "grunt-contrib-jshint": "latest",
+    "grunt-contrib-jst": "latest",
+    "grunt-contrib-watch": "latest",
+    "grunt-deploy": "latest",
+    "grunt-ejs-render": "latest",
+    "grunt-exec": "latest",
+    "grunt-express-server": "latest",
+    "grunt-jsbeautifier": "latest",
+    "grunt-jsdoc-plugin": "^0.1.4",
+    "grunt-node-inspector": "latest",
+    "grunt-nodemon": "latest",
+    "grunt-open": "latest",
+    "jshint-stylish": "latest",
+    "livereload": "latest",
+    "load-grunt-tasks": "latest",
+    "request": "latest",
+    "time-grunt": "latest"
+  }
+}

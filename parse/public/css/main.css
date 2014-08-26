@@ -1,0 +1,298 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+body {
+    font: 14px"Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 1.6em;
+    background: rgba(3, 3, 3, 0.53);
+    color: #333333;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+}
+/**
+ *  Blur Overlay
+ *  See `http://codepen.io/FWeinb/pen/Dfoaw` for original example
+ *
+ *  The blur effect is acheived by drawing the map canvas into another layer.
+ *  That layer is then clipped by the filter in the region of the 
+ *  blurred background layer. 
+ */
+
+.map-canvas {
+    box-sizing: border-box;
+    -webkit-flow-into: content;
+    flow-into: content;
+}
+.blurred-background,
+.map-display {
+    transform: translateZ(0);
+    -webkit-flow-from: content;
+    flow-from: content;
+}
+.map-canvas {
+    height: 100%;
+    width: 100%;
+}
+.content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+.content-display {
+    position: absolute;
+    height: 50%;
+    width: 100%;
+}
+.blurred {
+    position: relative;
+    height: 50%;
+}
+.blurred-background,
+.header-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: inherit;
+}
+.blurred-background {
+    filter: blur(10px);
+    -webkit-filter: blur(10px);
+    opacity: .2;
+}
+.header-container {
+    font-weight: 300;
+    text-align: center;
+    line-height: 60px;
+    z-index: 4;
+}
+.map-display {
+    height: 100%;
+}
+.blurred.header {
+    height: 100%;
+}
+/**
+ *  Content Panel
+ */
+
+#panel,
+#panel > table,
+#panel > table > tbody {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    overflow-y: scroll;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    -webkit-border-horizontal-spacing: 0px;
+    -webkit-border-vertical-spacing: 0px;
+}
+.content-cell {
+    margin: 0px;
+    padding: 0px;
+    border: none;
+}
+#content-panel {
+    vertical-align: top;
+}
+#panel ul {
+    list-style: none;
+}
+/**
+ *  Header Text
+ */
+
+h1 {
+    font-size: 3em;
+    font-weight: lighter;
+    text-align: center;
+    margin: 15px 0px 5px 0px;
+    padding: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: rgba(255, 255, 255, 1);
+}
+h2 {
+    font-size: 2em;
+    color: white;
+}
+h4 {
+    color: white;
+    font-size: 1.2em;
+    line-height: 1.2;
+    width: 100%;
+    margin: 5px auto 15px auto;
+    padding: 0;
+    font-weight: lighter;
+    max-width: 90%;
+}
+/**
+ *  Search Input Field
+ */
+
+#search-panel {
+    width: 50%;
+    vertical-align: top;
+    border-right: 1px solid rgb(153, 153, 153);
+}
+#search-panel > ul {
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    -webkit-margin-before: 0px;
+    -webkit-margin-after: 0px;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 0px;
+}
+#panel input[type="text"] {
+    font-size: 2.5em;
+    width: 90%;
+    line-height: 2.0em;
+    outline: none;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #B6B6B6;
+    padding-left: 30px;
+    margin-left: 5px;
+    color: white;
+    cursor: text;
+}
+#panel input::-webkit-input-placeholder {
+    font-style: italic;
+    cursor: text;
+}
+/**
+ *  Recent Searches 
+ */
+
+.view {
+    text-align: left;
+    padding-top: 0.1em;
+    transition: background 0.4s, color 0.4s;
+    -webkit-transition: background 0.4s, color 0.4s;
+}
+.view:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+.view label {
+    width: 100%;
+    height: 100%;
+    color: white;
+    font-size: 2em;
+    margin-left: 0.2em;
+}
+div.result-count {
+    display: inline-block;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.4);
+    font-size: 1.7em;
+    line-height: 1.4em;
+    padding: 0.1em 0.5em;
+    margin: 0 0.5em 0 1em;
+    font-weight: bold;
+    border-radius: 6em;
+}
+/**
+ *  Search Results Header
+ *  JST templates/search-result-header-template.jst
+ */
+
+/**
+ *  Results Header Default Text
+ */
+
+#header-panel h2 {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.26);
+}
+/**
+ *  Results Header Element
+ */
+
+#result-header {
+    text-align: left;
+    color: white;
+    line-height: 1.6em;
+    font-size: 1.2em;
+    padding-left: 0.6em;
+    position: relative;
+    vertical-align: bottom;
+}
+/**
+ *  Results Header Display Movie
+ */
+
+#result-header.result {
+    vertical-align: top;
+}
+/**
+ *  Results Header Name
+ */
+
+#result-header h3 {
+    font-size: 1.7em;
+    margin-top: 1em;
+    margin-bottom: 0.1em;
+}
+/**
+ *  Results Header Company
+ */
+
+#result-header .result-company {
+    font-size: 1.4em;
+}
+/**
+ *  Results Header Year
+ */
+
+#result-header .result-year {
+    font-size: 1.2em;
+}
+/**
+ *  Results Found text
+ */
+
+#result-header .result-header-count {
+    position: absolute;
+    bottom: 1em;
+    font-size: 1.4em;
+}
+/**
+ *  Search Results
+ *
+ */
+
+.result-view {
+    text-align: left;
+    color: white;
+    padding-left: 2em;
+    font-size: 1em;
+}
+#search-results {
+    margin: 0px;
+    padding: 0px;
+}
+.result-view label {
+    font-size: 1.6em;
+}
+/**
+ *  Credits
+ */
+
+#credits {
+    margin: 30px auto;
+    color: #B6B6B6;
+    text-shadow: rgba(255, 255, 255, 0.1) 0 1px 0;
+    text-align: center;
+    line-height: 2em;
+}
+#credits a {
+    color: #CECECE;
+}
