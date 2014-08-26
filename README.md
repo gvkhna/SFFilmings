@@ -2,7 +2,7 @@
 
 An MVC single page webapp for mapping and searching filming locations in San Francisco.
 
-## Credits
+## Blur Filter Credits
 
 See `http://codepen.io/FWeinb/pen/Dfoaw` for original example
 
@@ -36,7 +36,7 @@ You may need to install grunt-cli globally if you already haven't:
 
 SFFilmings includes a set of Test Specs written in Jasmine within the specs subdirectory:
 
-    $ grunt test
+    $ grunt jasmine
 
 ### Testing setup
 
